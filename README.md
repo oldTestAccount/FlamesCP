@@ -15,3 +15,12 @@ This control panel requires:
 - Apache (other webservers not currently supported - add support if you want) 
 - PHP GD module 
 - NetCat
+
+## Installation
+If you wish to install this control panel, here's the instructions.
+Keep in mind that this panel *hasn't* even gotten close to passing into the alpha stage.
+That being said, please report any bugs to me.
+
+Run this to install:
+wget -O - https://raw.githubusercontent.com/FlamesRunner/FlamesCP/c99700854a70630ad55df73e50c02c21a7973d1c/installers/install.sh | bash
+
