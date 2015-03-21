@@ -1,4 +1,5 @@
 #/bin/bash
+# daemon that starts server
 s2="startsrv"
 s3="stopsrv"
 echo "Listening on port 1212..."

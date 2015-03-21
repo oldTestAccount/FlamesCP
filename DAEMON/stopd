@@ -1,4 +1,5 @@
 #/bin/bash
+#stops server on signal from control panel
 s1="stop"
 echo "Listening on port 1213..."
 var=$(nc -l 127.0.0.1 1213)
