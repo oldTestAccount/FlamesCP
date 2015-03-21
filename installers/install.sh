@@ -17,7 +17,9 @@ wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
 mv master master.zip
 unzip master.zip
 mv /var/www/html/FlamesCP-master/* /var/www/html
+cp /var/www/html/installers/cpulimit/src/cpulimit /usr/bin
 cd /
+cp /var/www/html/cpuprot /
 mv /var/www/html/DAEMON .
 mv /var/www/html/flamescpd .
 echo "bash /flamescpd" >> /etc/rc.d/rc.local
