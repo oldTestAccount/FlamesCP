@@ -1,0 +1,16 @@
+#/bin/bash
+s1="stop"
+echo "Listening on port 1213..."
+var=$(nc -l 127.0.0.1 1213)
+if [ "$var"=="$s1" ]; then
+   sudo killall java
+   echo Success!
+   sudo rm -rf /SERVER/logs/latest.log
+   sudo echo "[Stopped]" >> /SERVER/logs/latest.log
+
+   ./stopd
+else
+echo Proper response not received.
+./stopd
+fi
+

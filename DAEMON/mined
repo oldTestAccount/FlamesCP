@@ -1,0 +1,20 @@
+#/bin/bash
+s2="startsrv"
+s3="stopsrv"
+echo "Listening on port 1212..."
+var=$(nc -l 127.0.0.1 1212)
+if [ "$var"=="$s2" ]; then
+   /bin/startserver
+   echo Success!
+   ./mined
+else
+if [ "$var"=="$s3" ]; then
+   /bin/startserver
+   echo Success!
+   ./mined
+else
+echo Proper response not received.
+./mined
+fi
+fi
+
