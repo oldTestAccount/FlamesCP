@@ -18,9 +18,15 @@ This control panel requires:
 
 ## Installation
 If you wish to install this control panel, here's the instructions.
-Keep in mind that this panel *hasn't* even gotten close to passing into the alpha stage.
+Keep in mind that this panel * hasen't * even gotten close to passing into the alpha stage.
 That being said, please report any bugs to me.
 
 Run this to install:
+
 wget -O - https://raw.githubusercontent.com/FlamesRunner/FlamesCP/c99700854a70630ad55df73e50c02c21a7973d1c/installers/install.sh | bash
 
+
+## Support
+
+You may contact me at akyle2001@gmail.com or alternatively you may contact us at support@flameshost.com.
+Thanks!
