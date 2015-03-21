@@ -30,3 +30,6 @@ wget -O - https://raw.githubusercontent.com/FlamesRunner/FlamesCP/c99700854a7063
 
 You may contact me at akyle2001@gmail.com or alternatively you may contact us at support@flameshost.com.
 Thanks!
+
+## Credits
+Special thanks to Thomas Depole, whom I used his tailing code for.
