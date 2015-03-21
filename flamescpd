@@ -1,0 +1,3 @@
+screen -dm -S mined /bin/bash "/DAEMON/mined"
+screen -dm -S stopd /bin/bash "/DAEMON/stopd"
+echo "flamescpd: started up successfully!"
