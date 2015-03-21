@@ -1,10 +1,9 @@
-<h1>FlamesCP</h1>
-<hr>
-<p>a lightweight mysql-free minecraft control panel for single servers</p>
-<br>
-<h3>Notes</h3>
-<p>Please move the authentication directory (security) to /var/www/security, if you would like to test this.</p>
-<p>o.php is the console output reader - do not remove it!</p>
-<p> </p>
-<p>The daemons are in the DAEMON directory - please start a screen for each and start them up seperately.</p>
-<p>Make sure you run the daemons as root!</p>
+FlamesCP
+a lightweight mysql-free minecraft control panel for single servers
+
+Notes
+Please move the authentication directory (security) to /var/www/security, if you would like to test this.
+o.php is the console output reader - do not remove it!
+
+The daemons are in the DAEMON directory - please start a screen for each and start them up seperately.
+Make sure you run the daemons as root!
