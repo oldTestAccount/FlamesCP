@@ -9,7 +9,7 @@ include('/var/www/security/password_protect.php');
 <br>
 <div class="container">
 <div class="well well-lg">
-<h3>FlamesCP v0.013 (build 3) <b>-</b>  <a href="mailto:support@flameshost.com" class="btn btn-info btn-sm">Support</a></h3>
+<h3>FlamesCP v0.02 (build 14) <b>-</b>  <a href="mailto:support@flameshost.com" class="btn btn-info btn-sm">Support</a></h3>
 <br>
 <html>
 <head>
