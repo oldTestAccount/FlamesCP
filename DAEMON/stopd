@@ -9,9 +9,9 @@ if [ "$var"=="$s1" ]; then
    sudo rm -rf /SERVER/logs/latest.log
    sudo echo "[Stopped]" >> /SERVER/logs/latest.log
 
-   ./stopd
+   bash /DAEMON/stopd
 else
 echo Proper response not received.
-./stopd
+   bash /DAEMON/stopd
 fi
 

@@ -29,7 +29,8 @@ mv minecraft_server.1.8.3.jar minecraft_server.jar
 clear
 echo "Please enter the amount of RAM that your system has. (in MB)"
 read ram
-echo "java -Xmx$ramM -jar minecraft_server.jar nogui" >> start.sh
+mem="-Xmx${ram}M"
+echo "java $mem -jar minecraft_server.jar nogui" >> start.sh
 echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
 sleep 1

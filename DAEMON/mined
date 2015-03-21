@@ -7,15 +7,15 @@ var=$(nc -l 127.0.0.1 1212)
 if [ "$var"=="$s2" ]; then
    bash /var/www/startserver
    echo Success!
-   ./mined
+   bash /DAEMON/mined
 else
 if [ "$var"=="$s3" ]; then
    bash /var/www/startserver
    echo Success!
-   ./mined
+   bash /DAEMON/mined
 else
 echo Proper response not received.
-./mined
+   bash /DAEMON/mined
 fi
 fi
 
