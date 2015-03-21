@@ -35,5 +35,6 @@ include('/var/www/security/password_protect.php');
 </div>
 <br>
 <div style="border-radius: 10px; width: 100%; overflow: hidden;"> 
+<base target="_parent" />
 <iframe src="o.php" frameBorder="no" width="100%" height="59%"></iframe>
 </div>
