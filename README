@@ -1,7 +1,7 @@
-#FlamesCP
-###a lightweight mysql-free minecraft control panel for single servers
+# FlamesCP
+### a lightweight mysql-free minecraft control panel for single servers
 
-##Notes
+## Notes
 Please move the authentication directory (security) to /var/www/security, if you would like to test this.
 o.php is the console output reader - do not remove it!
 
