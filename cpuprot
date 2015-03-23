@@ -1,2 +1,2 @@
-cpulimit --limit --exe=java
+cpulimit --limit=75 --exe=java
 bash /cpuprot
