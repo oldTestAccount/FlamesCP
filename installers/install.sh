@@ -10,7 +10,7 @@ else
 if [ ! -z "$os" ]; then
 echo "Installing dependencies..."
 sleep 1
-yum install -y httpd php php-gd nc git zip unzip
+yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo
 echo "Grabbing latest release..."
 cd /var/www/html
 wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
@@ -20,6 +20,7 @@ mv /var/www/html/FlamesCP-master/* /var/www/html
 cp /var/www/html/installers/cpulimit/src/cpulimit /usr/bin
 cd /
 cp /var/www/html/cpuprot /
+chmod 755 /cpuprot
 mv /var/www/html/DAEMON .
 mv /var/www/html/flamescpd .
 echo "bash /flamescpd" >> /etc/rc.d/rc.local
@@ -36,6 +37,8 @@ echo "java $mem -jar minecraft_server.jar nogui" >> start.sh
 echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
 sleep 1
+service httpd start
+echo "Please edit /var/www/security/password_protect.php and find the login details. You may change them too."
 echo "Installation complete! Please run: bash /flamescpd to start the daemon."
 else
 echo "Invalid option."
