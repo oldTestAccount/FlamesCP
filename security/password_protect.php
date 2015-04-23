@@ -9,8 +9,10 @@
 #  SETTINGS START
 ##################################################################
 
-// Add login/password pairs below, like described above
-// NOTE: all rows except last must have comma "," at the end of line
+// admin is the username, password is the password.
+// if you want to add administrators, put a comma at the end of the previous username/password
+// and on the next line, type 'yourusername' => 'yourpassword'
+// keep doing this if you want more administrators
 $LOGIN_INFORMATION = array(
   'admin' => 'password'
 
