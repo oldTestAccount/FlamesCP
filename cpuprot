@@ -1,2 +1,2 @@
 cpulimit --limit=75 --exe=java
-bash /cpuprot
+bash /DAEMON/cpuprot
