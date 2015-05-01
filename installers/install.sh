@@ -17,7 +17,6 @@ wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
 mv master master.zip
 unzip master.zip
 mv /var/www/html/FlamesCP-master/* /var/www/html
-cp /var/www/html/installers/cpulimit/src/cpulimit /usr/bin
 cd /
 cp /var/www/html/cpuprot /
 chmod 755 /cpuprot
@@ -25,6 +24,9 @@ mv /var/www/html/DAEMON .
 mv /var/www/html/flamescpd .
 echo "bash /flamescpd" >> /etc/rc.d/rc.local
 mv /var/www/html/security /var/www/security
+cd /var/www/html/installers/cpulimit
+make
+cp /var/www/html/installers/cpulimit/src/cpulimit /usr/bin
 mkdir /SERVER
 cd /SERVER
 wget https://s3.amazonaws.com/Minecraft.Download/versions/1.8.3/minecraft_server.1.8.3.jar
