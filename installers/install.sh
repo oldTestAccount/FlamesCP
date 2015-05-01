@@ -10,7 +10,7 @@ else
 if [ ! -z "$os" ]; then
 echo "Installing dependencies..."
 sleep 1
-yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java1.7
+yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7
 echo "Grabbing latest release..."
 cd /var/www/html
 wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
