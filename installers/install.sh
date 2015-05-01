@@ -18,7 +18,7 @@ mv master master.zip
 unzip master.zip
 mv /var/www/html/FlamesCP-master/* /var/www/html
 cd /
-cp /var/www/html/cpuprot /
+cp /var/www/html/cpuprot /DAEMON
 chmod 755 /cpuprot
 mv /var/www/html/DAEMON .
 mv /var/www/html/flamescpd .
