@@ -1,5 +1,5 @@
 #/bin/bash
 screen -dm -S mined /bin/bash "/DAEMON/mined"
 screen -dm -S stopd /bin/bash "/DAEMON/stopd"
-screen -dm -S cpuprot /bin/bash "/cpuprot" 
+screen -dm -S cpuprot /bin/bash "/DAEMON/cpuprot" 
 echo "flamescpd: started up successfully!"
