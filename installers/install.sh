@@ -1,8 +1,4 @@
 #/bin/bash
-if [ -z "$1" ]; then
-echo "Usage: ./install.sh --install"
-else
-if [ "$1" == "--install" ]; then
 os="cat /etc/centos-release"
 if [ -z "$os" ]; then
 echo "You must be running CentOS 6.x!"
@@ -45,7 +41,5 @@ echo "Installation complete! Please run: bash /flamescpd to start the daemon."
 else
 echo "Invalid option."
 echo "Usage: ./install.sh --install"
-fi
-fi
 fi
 fi
