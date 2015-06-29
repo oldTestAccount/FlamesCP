@@ -42,6 +42,6 @@ include('/var/www/security/password_protect.php');
 <p>Default FTP details:</p>
 <p>Username: ftpuser</p>
 <p>Password: (set in the installer)</p>
-<p>Host:<?php echo $_SERVER['SERVER_ADDR']; ?></p>
-
+<p>Host: <?php echo $_SERVER['SERVER_ADDR']; ?></p>
+<p>Use a free client such as <a href="https://filezilla-project.org">FileZilla</a>, to manage server files.</p>
 
