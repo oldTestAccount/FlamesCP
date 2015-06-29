@@ -14,7 +14,7 @@
 // and on the next line, type 'yourusername' => 'yourpassword'
 // keep doing this if you want more administrators
 $LOGIN_INFORMATION = array(
-  'admin' => 'password'
+  'admin' => 't5uqazeMEp'
 
 );
 
