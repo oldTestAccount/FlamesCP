@@ -23,7 +23,7 @@ That being said, please report any bugs to me.
 
 Run this to install:
 
-wget -O - https://raw.githubusercontent.com/FlamesRunner/FlamesCP/c99700854a70630ad55df73e50c02c21a7973d1c/installers/install.sh | bash
+wget -O - https://raw.githubusercontent.com/FlamesRunner/FlamesCP/master/installers/install.sh | bash
 
 
 ## Support
