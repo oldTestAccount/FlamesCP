@@ -72,7 +72,7 @@ body {
 <hr>
 <form action="login.php" method="get">
 <?php if(isset($_GET['error'])){ ?>
-<p><b>Error</b>: <?php echo $_GET['error']; ?></p>
+<div class="alert alert-danger"><b>Error</b>: <?php echo $_GET['error']; ?></div>
 <?php } ?>
 <div class="input-group-vertical">
 <input id="name" class="form-control" name="username" placeholder="Username..." type="text">
