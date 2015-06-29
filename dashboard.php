@@ -101,3 +101,49 @@ $output=shell_exec('sudo /bin/sendcmd "'.$cmd.'"');
 <p>Host: <?php echo $_SERVER['SERVER_ADDR']; ?></p>
 <p>Use a free client such as <a href="https://filezilla-project.org">FileZilla</a>, to manage server files.</p>
 
+<style type="text/css">
+body {
+  /* Location of the image */
+  background-image: url(bg.jpg);
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}body {
+  /* Location of the image */
+  background-image: url(bg.jpg);
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}
+</style>
+
