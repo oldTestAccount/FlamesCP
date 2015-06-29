@@ -5,6 +5,10 @@ session_start();
 <?php
 ob_start();
 
+if (empty($_GET['username'])) {
+    header('Location: index.php?error=Uername and/or password was not specified.');
+}
+
 $username = $_GET['username'];
 $password = $_GET['password'];
  
@@ -14,7 +18,7 @@ mysql_select_db('users', $conn);
 $username = mysql_real_escape_string($username);
 $query = "SELECT id, username, password
         FROM login
-        WHERE username = '$username';";
+        WHERE username = '$username' and password = '$password';";
  
 $result = mysql_query($query);
  
@@ -25,10 +29,7 @@ if(mysql_num_rows($result) == 0) // User not found. So, redirect to login_form a
  
 $userData = mysql_fetch_array($result, MYSQL_ASSOC);
  
-if(! $password = $userData['password']) // Incorrect password. So, redirect to login_form again.
-{
-        header('Location: index.php?error=Invalid username and/or password.');
-        }else{ // Redirect to home page after successful.
+if(mysql_num_rows($result) == 1) {
 	session_regenerate_id();
 	$_SESSION['logged_in']='true';
 	session_write_close();
