@@ -14,6 +14,7 @@ if (strpos($status,$stringfound) !== false) {
 <div class="btn-group">
 <a href="startserver.php" target="_blank" class="btn btn-success">Start Server</a>
 <a href="stop.php" disabled="disabled" target="_blank" class="btn btn-warning">Server already stopped!</a>
+<a href="password.php" class="btn btn-primary">Change password</a>
 <base target="_parent" />
 <a href="logout.php" class="btn btn-danger">Log out</a>
 </base>
@@ -24,6 +25,7 @@ if (strpos($status,$stringfound) !== false) {
 <div class="btn-group">
 <a href="startserver.php" disabled="disabled" target="_blank" class="btn btn-success">Server already started!</a>
 <a href="stop.php" target="_blank" class="btn btn-warning">Stop Server (data is not saved!)</a>
+<a href="password.php" class="btn btn-primary">Change password</a>
 <base target="_parent" />
 <a href="logout.php" class="btn btn-danger">Log out</a>
 </base>
