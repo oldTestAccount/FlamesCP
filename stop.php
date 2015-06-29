@@ -1,5 +1,5 @@
 <?php
-require '/var/www/security/password_protect.php';
+require 'session.php';
 ?>
 
 <p>Sent the signal to the FlamesSRV Daemon to stop the server.</p>

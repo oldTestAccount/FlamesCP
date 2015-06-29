@@ -1,5 +1,5 @@
 <?php
-include('/var/www/security/password_protect.php');
+include('session.php');
 $status = shell_exec("cat /SERVER/logs/latest.log");
 
 $stringfound = 'Stopped';

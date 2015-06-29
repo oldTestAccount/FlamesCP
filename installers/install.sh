@@ -7,7 +7,7 @@ if [ ! -z "$os" ]; then
 echo "Installing dependencies..."
 sleep 1
 yum install epel-release
-yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd
+yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
 echo "Grabbing latest release..."
 cd /var/www/html
 wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
@@ -37,6 +37,17 @@ echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
 sleep 1
 service httpd start
+echo "Configuring MySQL..."
+service mysqld start
+mysql -uroot -e use mysql; "use mysql; update user set password=PASSWORD("stapHunu3A") where User='root'; flush privileges;"
+mysql -uroot -pstapHunu3A -e 'create database users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, PRIMARY KEY (id));'
+sleep 2
+clear
+echo "Please enter a administrative password."
+read adminpwd
+mysql -uroot -pstapHunu3A -e 'use users; insert into login (id, username, password) VALUES(1, "admin", "$adminpwd");'
+sleep 2
+echo "Copying init files..."
 cp /var/www/html/init /etc/init.d/flamescpd
 chmod 755 /etc/init.d/flamescpd
 rm -rf /etc/vsftpd/vsftpd.conf
@@ -63,7 +74,7 @@ echo "--------------------------------------------------------------------------
 echo " "
 echo "Default administrator details:"
 echo "Username: admin"
-echo "Password: t5uqazeMEp"
+echo "Password: $adminpwd"
 echo " "
 echo "-----------------------------------------------------------------------------"
 echo " "
