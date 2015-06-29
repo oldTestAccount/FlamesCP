@@ -12,7 +12,7 @@ color:red
 hr {
 border:0;
 border-bottom:2px solid #000000;
-margin:10px -40px;
+margin:10px -41px;
 margin-bottom:30px
 }
 #login {
@@ -20,24 +20,25 @@ width:300px;
 float:center;
 border-radius:10px;
 font-family:'Open Sans', sans-serif;
-border:2px solid #000000;
+border:2px solid #E6E6E6;
 padding:10px 40px 25px;
 margin-top:70px
+background-color: grey;
 }
 input[type=text],input[type=password] {
 width:99.5%;
 padding:10px;
 margin-top:8px;
-border:1px solid #ccc;
+border:1px solid #darkgrey;
 padding-left:5px;
 font-size:16px;
 font-family:'Open Sans', sans serif;
 }
 input[type=submit] {
 width:100%;
-background-color:#FFBC00;
+background-color:#000;
 color:#fff;
-border:2px solid #FFCB00;
+border:1px solid #FFF;
 padding:10px;
 font-size:20px;
 cursor:pointer;

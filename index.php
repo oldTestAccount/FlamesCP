@@ -57,6 +57,15 @@ body {
      while the background image is loading */
   background-color: #464646;
 }
+
+.content {
+background-color: white;
+color: black;
+}
+
+.flatBtn {
+border-radius: 0px;
+}
 </style>
 
 <!DOCTYPE html>
@@ -66,20 +75,24 @@ body {
 </head>
 <body>
 <div id="main">
-<div id="login">
-<h2><b>FlamesCP Login</b></h2>
+<div class="content" id="login">
+<h2><b>FlamesCP</b>: Login</h2>
 <br>
 <hr>
 <form action="login.php" method="get">
 <?php if(isset($_GET['error'])){ ?>
-<div class="alert alert-danger"><b>Error</b>: <?php echo $_GET['error']; ?></div>
+<div class="alert alert-danger"><b>Error</b>: <?php echo $_GET['error']; ?></div><br>
+<?php } ?>
+<?php if(isset($_GET['loggedout'])){ ?>
+<div class="alert alert-info">You have been logged out.</div>
 <?php } ?>
 <div class="input-group-vertical">
-<input id="name" class="form-control" name="username" placeholder="Username..." type="text">
-<input id="password" class="form-control" name="password" placeholder="Password..." type="password">
+<input id="name" class="form-control input-lg" name="username" placeholder="Username..." type="text"><br>
+<input id="password" class="form-control input-lg" name="password" placeholder="Password..." type="password"><br>
 </div>
 <br>
-<input type="submit" value=" Login ">
+<div class="flatBtn">
+<input class="flatBtn" type="submit" value=" Login "></div>
 <span><?php echo $error; ?></span>
 </form>
 </div>
