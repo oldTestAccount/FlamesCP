@@ -1,5 +1,5 @@
 # FlamesCP
-a lightweight mysql-free control panel for single minecraft servers
+a lightweight control panel for single minecraft servers
 
 ## Notes
 Please move the authentication directory (security) to 
@@ -15,6 +15,7 @@ This control panel requires:
 - Apache (other webservers not currently supported - add support if you want) 
 - PHP GD module 
 - NetCat
+- MySQL
 
 ## Installation
 If you wish to install this control panel, here's the instructions.
@@ -33,4 +34,5 @@ Thanks!
 
 ## Credits
 Special thanks to Thomas Depole, whom I used his tailing code for.
-Thanks to @ThomasGlass for providing development servers
+
+Special thanks goes to @ThomasGlass, for providing development servers.
