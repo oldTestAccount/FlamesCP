@@ -11,7 +11,6 @@ $stringfound = 'Stopped';
 if (strpos($status,$stringfound) !== false) {
 
 ?>
-<div class="container">
 <div class="btn-group">
 <a href="startserver.php" target="_blank" class="btn btn-success">Start Server</a>
 <a href="stop.php" disabled="disabled" target="_blank" class="btn btn-warning">Server already stopped!</a>
@@ -20,7 +19,6 @@ if (strpos($status,$stringfound) !== false) {
 </base>
 </div>
 <?php } else { ?>
-<div class="container">
 <div class="btn-group">
 <a href="startserver.php" disabled="disabled" target="_blank" class="btn btn-success">Server already started!</a>
 <a href="stop.php" target="_blank" class="btn btn-warning">Stop Server (data is not saved!)</a>
