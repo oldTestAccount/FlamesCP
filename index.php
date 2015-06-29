@@ -15,7 +15,7 @@ include('/var/www/security/password_protect.php');
 <head>
 
 <script type="text/javascript">
-       setInterval(refreshIframe2, 3000);
+       setInterval(refreshIframe2, 5000);
        function refreshIframe2() {
            var frame = document.getElementById("frame2");
            frame.src = frame.src;
@@ -23,7 +23,7 @@ include('/var/www/security/password_protect.php');
    </script>
 
 <div style="border-radius: 1px; width: 100%; overflow: hidden;">
-<iframe id="frame2" src="controls.php" scrolling="no" height="94px" width="50%" frameBorder="no"></iframe>
+<iframe id="frame2" src="controls.php" scrolling="no" height="94px" width="100%" frameBorder="no"></iframe>
 </div>
 <br> </br>
 <form method="POST" action="/">
@@ -38,3 +38,10 @@ include('/var/www/security/password_protect.php');
 <base target="_parent" />
 <iframe src="o.php" frameBorder="no" width="100%" height="59%"></iframe>
 </div>
+<br>
+<p>Default FTP details:</p>
+<p>Username: ftpuser</p>
+<p>Password: (set in the installer)</p>
+<p>Host:<?php echo $_SERVER['SERVER_ADDR']; ?></p>
+
+
