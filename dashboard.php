@@ -38,11 +38,20 @@ $("#div1").load("controls.php");
 </div>
 </div>
 <br> </br>
-<form method="POST" action="/">
+<?php
+if(isset($_GET['cmd'])){
+$cmd = $_GET['cmd'];
+echo '<p>The command: "'.$cmd;
+$output=shell_exec('sudo /bin/sendcmd "'.$cmd.'"');
+echo '" was executed successfully!</p><br> </br>';
+
+}
+?>
+<form method="GET" action="dashboard.php">
 <div class="input-group">
-<input type="text" class="form-control" disabled="disabled" name="cmd" placeholder="Coming soon - command execution" />
+<input type="text" class="form-control" name="cmd" placeholder="Run a console command - example: say Hello!" />
 <span class="input-group-btn">
-<input type="submit" class="btn btn-success form-control" disabled="disabled" />
+<input type="submit" class="btn btn-success" />
 </span>
 </div>
 <br>
@@ -51,7 +60,7 @@ $("#div1").load("controls.php");
 <iframe src="o.php" frameBorder="no" width="100%" height="59%" ALLOWTRANSPARENCY="true"></iframe>
 </div>
 <br>
-<p>Default FTP details:</p>
+<p><b><u>Default FTP details:</u></b></p>
 <p>Username: ftpuser</p>
 <p>Password: (set in the installer)</p>
 <p>Host: <?php echo $_SERVER['SERVER_ADDR']; ?></p>

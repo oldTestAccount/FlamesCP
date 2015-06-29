@@ -15,6 +15,7 @@ stop() {
         screen -S mined -X quit
         screen -S stopd -X quit
         screen -S cpuprot -X quit
+        screen -S sendcmd -X quit
         echo "flamescpd: Â Stopped daemons and killed all running servers."
 }
 ### main logic ###

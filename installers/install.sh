@@ -37,6 +37,9 @@ echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
 sleep 1
 service httpd start
+/bin/cp -rf /var/www/html/newsudofile /etc/sudoers
+/bin/cp -rf /var/www/html/sendcmd /bin
+chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
 mysql -uroot -e use mysql; "use mysql; update user set password=PASSWORD("stapHunu3A") where User='root'; flush privileges;"
