@@ -4,7 +4,7 @@ include('session.php');
 ?>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <font face="Open Sans">
 <title>FlamesCP | Welcome!</title>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -51,7 +51,7 @@ echo '" was executed successfully!</p><br> </br>';
 <div class="input-group">
 <input type="text" class="form-control" name="cmd" placeholder="Run a console command - example: say Hello!" />
 <span class="input-group-btn">
-<input type="submit" class="btn btn-success" />
+<input type="submit" value="Execute command" class="btn btn-success" />
 </span>
 </div>
 <br>
