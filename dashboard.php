@@ -11,7 +11,7 @@ include('session.php');
 <br>
 <div class="container">
 <div class="well well-lg">
-<h3>FlamesCP v0.03 (build 15) - Server IP: <?php echo $_SERVER['SERVER_ADDR']; ?>:25565 -  <a href="mailto:support@flameshost.com" class="btn btn-info btn-sm">Support</a></h3>
+<h3>FlamesCP v0.5 (build 1) - Server IP: <?php echo $_SERVER['SERVER_ADDR']; ?>:25565 -  <a href="mailto:support@flameshost.com" class="btn btn-info btn-sm">Support</a></h3>
 <br>
 <html>
 <head>
