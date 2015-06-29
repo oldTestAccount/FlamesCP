@@ -18,6 +18,8 @@ if (strpos($status,$stringfound) !== false) {
 <a href="logout.php" class="btn btn-danger">Log out</a>
 </base>
 </div>
+<br> </br>
+<p>Hello! You're currently logged in as: <b><?php echo $_SESSION['logged_in_as']; ?></b>.</p>
 <?php } else { ?>
 <div class="btn-group">
 <a href="startserver.php" disabled="disabled" target="_blank" class="btn btn-success">Server already started!</a>
@@ -26,6 +28,8 @@ if (strpos($status,$stringfound) !== false) {
 <a href="logout.php" class="btn btn-danger">Log out</a>
 </base>
 </div>
+<br> </br>
+<p>Hello! You're currently logged in as: <b><?php echo $_SESSION['logged_in_as']; ?></b>.</p>
 <?php } ?>
 
 </div>

@@ -32,6 +32,7 @@ $userData = mysql_fetch_array($result, MYSQL_ASSOC);
 if(mysql_num_rows($result) == 1) {
 	session_regenerate_id();
 	$_SESSION['logged_in']='true';
+        $_SESSION['logged_in_as']=$username;
 	session_write_close();
         header('Location: dashboard.php');
 }

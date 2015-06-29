@@ -93,7 +93,6 @@ border-radius: 0px;
 <br>
 <div class="flatBtn">
 <input class="flatBtn" type="submit" value=" Login "></div>
-<span><?php echo $error; ?></span>
 </form>
 </div>
 </div>

@@ -27,12 +27,12 @@ cp /var/www/html/installers/cpulimit/src/cpulimit /usr/bin
 mkdir /SERVER
 cd /SERVER
 wget https://s3.amazonaws.com/Minecraft.Download/versions/1.8.3/minecraft_server.1.8.3.jar
-mv minecraft_server.1.8.3.jar minecraft_server.jar
+mv minecraft_server.1.8.3.jar server.jar
 clear
 echo "Please enter the amount of RAM that your system has. (in MB)"
 read ram
 mem="-Xmx${ram}M"
-echo "java $mem -jar minecraft_server.jar nogui" >> start.sh
+echo "java $mem -jar server.jar nogui" >> start.sh
 echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
 sleep 1
