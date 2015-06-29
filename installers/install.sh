@@ -36,10 +36,9 @@ echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
 sleep 1
 service httpd start
+cp /var/www/html/init /etc/init.d/flamescpd
+chmod 755 /etc/init.d/flamescpd
 echo "Please edit /var/www/security/password_protect.php and find the login details. You may change them too."
-echo "Installation complete! Please run: bash /flamescpd to start the daemon."
-else
-echo "Invalid option."
-echo "Usage: ./install.sh --install"
+echo "Installation complete! Please run: service flamescpd start to start the daemon."
 fi
 fi
