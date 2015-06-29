@@ -2,6 +2,8 @@
 session_start();
 include('session.php');
 ?>
+$
+<body STYLE="background-color:transparent">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -15,7 +17,7 @@ include('session.php');
 <br>
 <html>
 <head>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
        setInterval(refreshIframe2, 5000);
        function refreshIframe2() {
@@ -30,6 +32,42 @@ $("#div1").load("controls.php");
    }, 800);
 
 $("#div1").load("controls.php");
+
+   $( document ).ready(function() {
+
+            function loading() {
+                $('.result').show().html('<div class="alert alert-success">Command executed successfully!</div>');
+            }
+
+            function formResult(data) {
+                $('.result').html(data);
+                $('#cmd').val('');
+            }
+
+            function onSubmit() {
+                $('#cmd-form').submit(function() {
+                    var action = $(this).attr('action');
+                    loading();
+                    $.ajax({
+                        url: action,
+                        type: 'GET',
+                        data: {
+                            cmd: $('#cmd').val()
+                        },
+                        success: function(data) {
+                            formResult(data);
+                        },
+                        error: function(data) {
+                            formResult(data);
+                        }
+                    });
+                    return false;
+                });
+            }
+            onSubmit();
+
+        });
+
    </script>
 
 <div style="border-radius: 1px; width: 100%; overflow: hidden;">
@@ -41,24 +79,21 @@ $("#div1").load("controls.php");
 <?php
 if(isset($_GET['cmd'])){
 $cmd = $_GET['cmd'];
-echo '<p>The command: "'.$cmd;
 $output=shell_exec('sudo /bin/sendcmd "'.$cmd.'"');
-echo '" was executed successfully!</p><br> </br>';
-
 }
 ?>
-<form method="GET" action="dashboard.php">
+<form method="GET" id="cmd-form" action="dashboard.php">
 <div class="input-group">
-<input type="text" class="form-control" name="cmd" placeholder="Run a console command - example: say Hello!" />
+<input type="text" class="form-control" name="cmd" id="cmd" placeholder="Run a console command - example: say Hello!" />
 <span class="input-group-btn">
 <input type="submit" value="Execute command" class="btn btn-success" />
 </span>
 </div>
 <br>
-<div style="border-radius: 10px; width: 100%; overflow: hidden;"> 
+<!--<div style="border-radius: 10px; width: 100%; overflow: hidden;"> -->
 <base target="_parent" />
-<iframe src="o.php" frameBorder="no" width="100%" height="59%" ALLOWTRANSPARENCY="true"></iframe>
-</div>
+<iframe src="o.php" frameBorder="none" width="100%" height="59%" ALLOWTRANSPARENCY="true"></iframe>
+<!--</div>-->
 <br>
 <p><b><u>Default FTP details:</u></b></p>
 <p>Username: ftpuser</p>
