@@ -90,13 +90,13 @@ $query = 'insert into login (username, password, status) VALUES("'.$username.'",
 $out = mysql_query($query);
 echo '<pre>';
 echo 'Created user!';
-echo '<a href="dashboard.php" class="btn btn-info">Return to dashboard</a>';
 echo '</pre>';
+echo '<a href="dashboard.php" class="btn btn-info">Return to dashboard</a>';
 } else {
 echo '<pre>';
 echo "User exists!";
-echo '<a href="dashboard.php" class="btn btn-info">Return to dashboard</a>';
 echo '</pre>';
+echo '<a href="dashboard.php" class="btn btn-info">Return to dashboard</a>';
 }
 
 } else {
