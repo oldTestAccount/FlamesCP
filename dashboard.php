@@ -70,12 +70,14 @@ $("#div1").load("controls.php");
 
    </script>
 
-<div style="border-radius: 1px; width: 100%; overflow: hidden;">
+<div style="border-radius: 1px; width: 100%; height: 26px;">
 <div id="div1">
 <!--<iframe id="frame2" src="controls.php" scrolling="no" height="94px" width="100%" frameBorder="no"></iframe>-->
 </div>
 </div>
 <br> </br>
+<h3>Console</h3>
+<hr>
 <?php
 if($_SESSION['rank'] == "mod"){
 echo '<div class="alert alert-danger">Stopping the server is disallowed as a moderator.</div>';
@@ -90,6 +92,7 @@ $output=shell_exec('sudo /bin/sendcmd "'.$cmd.'"');
 }
 }
 ?>
+
 <form method="GET" id="cmd-form" action="dashboard.php">
 <div class="input-group">
 <input type="text" class="form-control" name="cmd" id="cmd" placeholder="Run a console command - example: say Hello!" />

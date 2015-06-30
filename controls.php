@@ -21,7 +21,7 @@ if (strpos($status,$stringfound) !== false) {
 </base>
 </div>
 <br> </br>
-<p>Hello! You're currently logged in as: <b><?php echo $_SESSION['logged_in_as']; ?></b>.</p>
+<p>Hello! You're currently logged in as: <b><?php echo $_SESSION['logged_in_as']; ?></b>, and your permissions are set to: <?php echo $_SESSION['rank']; ?>.</p>
 <?php } else { ?>
 <div class="btn-group">
 <a href="startserver.php" disabled="disabled" target="_blank" class="btn btn-success">Server already started!</a>
@@ -34,8 +34,7 @@ if (strpos($status,$stringfound) !== false) {
 </base>
 </div>
 <br> </br>
-<p>Hello! You're currently logged in as: <b><?php echo $_SESSION['logged_in_as']; ?></b>.</p>
-<p>Your permission level is: <?php echo $_SESSION['rank']; ?></p>
+<p>Hello! You're currently logged in as: <b><?php echo $_SESSION['logged_in_as']; ?></b> and your permissions are set to: <?php echo $_SESSION['rank']; ?>.</p>
 <?php } ?>
 
 </div>
