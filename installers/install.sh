@@ -43,12 +43,12 @@ chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
 mysql -uroot -e use mysql; "use mysql; update user set password=PASSWORD("stapHunu3A") where User='root'; flush privileges;"
-mysql -uroot -pstapHunu3A -e 'create database users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, PRIMARY KEY (id));'
+mysql -uroot -pstapHunu3A -e 'create database users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));'
 sleep 2
 clear
 echo "Please enter a administrative password."
 read adminpwd
-mysql -uroot -pstapHunu3A -e 'use users; insert into login (id, username, password) VALUES(1, "admin", "$adminpwd");'
+mysql -uroot -pstapHunu3A -e 'use users; insert into login (id, username, password, status) VALUES(1, "admin", "$adminpwd", "admin");'
 sleep 2
 echo "Copying init files..."
 cp /var/www/html/init /etc/init.d/flamescpd

@@ -77,9 +77,17 @@ $("#div1").load("controls.php");
 </div>
 <br> </br>
 <?php
+if($_SESSION['rank'] == "mod"){
+echo '<div class="alert alert-danger">Stopping the server is disallowed as a moderator.</div>';
+}
+
 if(isset($_GET['cmd'])){
 $cmd = $_GET['cmd'];
+if($_SESSION['rank'] == "mod" && $cmd == "stop" || $cmd == "reload"){
+echo '<div class="alert alert-danger">Stopping the server is disallowed.</div>';
+} else {
 $output=shell_exec('sudo /bin/sendcmd "'.$cmd.'"');
+}
 }
 ?>
 <form method="GET" id="cmd-form" action="dashboard.php">
