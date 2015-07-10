@@ -32,6 +32,7 @@ clear
 echo "Please enter the amount of RAM that your system has. (in MB)"
 read ram
 mem="-Xmx${ram}M"
+sleep 3
 echo "java $mem -jar server.jar nogui" >> start.sh
 echo "cd /SERVER" >> /var/www/startserver
 echo "bash start.sh" >> /var/www/startserver
@@ -48,6 +49,7 @@ sleep 2
 clear
 echo "Please enter a administrative password."
 read adminpwd
+sleep 3
 mysql -uroot -pstapHunu3A -e 'use users; insert into login (id, username, password, status) VALUES(1, "admin", "$adminpwd", "admin");'
 sleep 2
 echo "Copying init files..."
@@ -62,6 +64,7 @@ chmod 770 /SERVER/*
 clear
 echo "Please enter a password for the FTP user."
 read password
+sleep 3
 spawn passwd ftpuser
 expect "Password:"
 send "$password\r"
