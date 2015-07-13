@@ -42,7 +42,7 @@ chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
 mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('stapHunu3A'); flush privileges;"
-mysql -uroot -pstapHunu3A -e "create database users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
+mysql -uroot -pstapHunu3A -e "create database users; use users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
 sleep 2
 clear
 read -e -p "Please enter a administrative password: " adminpwd
