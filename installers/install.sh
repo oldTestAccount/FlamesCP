@@ -10,6 +10,7 @@ yum install epel-release -y
 yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
 echo "Grabbing latest release..."
 cd /var/www/html
+mkdir /DAEMON
 wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
 mv master master.zip
 unzip master.zip
