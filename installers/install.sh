@@ -6,7 +6,7 @@ else
 if [ ! -z "$os" ]; then
 echo "Installing dependencies..."
 sleep 1
-yum install epel-release
+yum install epel-release -y
 yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
 echo "Grabbing latest release..."
 cd /var/www/html
