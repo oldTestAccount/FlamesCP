@@ -16,6 +16,8 @@ if (strpos($status,$stringfound) !== false) {
 <a href="startserver.php" target="_blank" class="btn btn-success">Start Server</a>
 <a href="stop.php" disabled="disabled" target="_blank" class="btn btn-warning">Server already stopped!</a>
 <a href="password.php" class="btn btn-primary">Change password</a>
+<a href="adduser.php" class="btn btn-info">Add user</a>
+<a href="rmuser.php" class="btn btn-default">Remove user</a>
 <base target="_parent" />
 <a href="logout.php" class="btn btn-danger">Log out</a>
 </base>
