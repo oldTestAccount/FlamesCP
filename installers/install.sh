@@ -18,8 +18,8 @@ mv /var/www/html/FlamesCP-master/* /var/www/html
 cd /
 cp /var/www/html/cpuprot /DAEMON
 chmod 755 /cpuprot
-mv /var/www/html/DAEMON .
-mv /var/www/html/flamescpd .
+mv /var/www/html/DAEMON/* /DAEMON/
+mv /var/www/html/flamescpd /
 echo "bash /flamescpd" >> /etc/rc.d/rc.local
 mv /var/www/html/security /var/www/security
 cd /var/www/html/installers/cpulimit
