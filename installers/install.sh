@@ -54,7 +54,12 @@ chmod 755 /etc/init.d/flamescpd
 rm -rf /etc/vsftpd/vsftpd.conf
 cp /var/www/html/vsftpd.conf /etc/vsftpd
 useradd -d /SERVER ftpuser
+mkdir -p /SERVER/logs
+echo "[Stopped]" > /SERVER/logs/latest.log
+echo "eula=true" > /SERVER/eula.txt
 chown ftpuser:apache /SERVER
+chown ftpuser:apache /SERVER/logs/latest.log
+chown ftpuser:apache /SERVER/logs
 chown ftpuser:apache /SERVER/*
 chmod 770 /SERVER/*
 clear
