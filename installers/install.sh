@@ -29,8 +29,7 @@ cd /SERVER
 wget https://s3.amazonaws.com/Minecraft.Download/versions/1.8.3/minecraft_server.1.8.3.jar
 mv minecraft_server.1.8.3.jar server.jar
 clear
-echo "Please enter the amount of RAM that your system has. (in MB)"
-read ram
+read -e -p "Please enter the amount of RAM that your system has. (in MB): " ram
 mem="-Xmx${ram}M"
 echo "java $mem -jar server.jar nogui" >> start.sh
 echo "cd /SERVER" >> /var/www/startserver
@@ -46,8 +45,7 @@ mysql -uroot -e use mysql; "use mysql; update user set password=PASSWORD('stapHu
 mysql -uroot -pstapHunu3A -e "create database users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
 sleep 2
 clear
-echo "Please enter a administrative password."
-read adminpwd
+read -e -p "Please enter a administrative password: " adminpwd
 mysql -uroot -pstapHunu3A -e "use users; insert into login (id, username, password, status) VALUES(1, 'admin', '$adminpwd', 'admin');"
 sleep 2
 echo "Copying init files..."
@@ -60,17 +58,15 @@ chown ftpuser:apache /SERVER
 chown ftpuser:apache /SERVER/*
 chmod 770 /SERVER/*
 clear
-echo "Please enter a password for the FTP user."
-read password
+read -e -p "Please enter a FTP password: " ftppassword
 spawn passwd ftpuser
 expect "Password:"
-send "$password\r"
+send "$ftppassword\r"
 expect "Retype new password:"
-send "$password\r"
+send "$ftppassword\r"
 interact
 clear
 echo " "
-echo "Please edit /var/www/security/password_protect.php and find the login details. You may change them too."
 echo "Installation complete! Please run: service flamescpd start to start the daemon."
 echo " "
 echo "-----------------------------------------------------------------------------"
