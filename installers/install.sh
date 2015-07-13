@@ -59,12 +59,8 @@ chown ftpuser:apache /SERVER/*
 chmod 770 /SERVER/*
 clear
 read -e -p "Please enter a FTP password: " ftppassword
-spawn passwd ftpuser
-expect "Password:"
-send "$ftppassword\r"
-expect "Retype new password:"
-send "$ftppassword\r"
-interact
+echo -e "$ftppassword\n$ftppassword" | passwd ftpuser
+service vsftpd restart
 clear
 echo " "
 echo "Installation complete! Please run: service flamescpd start to start the daemon."
@@ -79,7 +75,8 @@ echo "--------------------------------------------------------------------------
 echo " "
 echo "You may modify server details through FTP with the details:"
 echo "Username: ftpuser"
-echo "Password: $password"
-echo "IP: <yourserverIPaddress>"
+echo "Password: $ftppassword"
+youripaddr=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
+echo "IP: $youripaddr"
 fi
 fi
