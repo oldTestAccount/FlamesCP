@@ -20,8 +20,9 @@ That being said, please report any bugs to me.
 
 Run this to install:
 
-wget -O - https://raw.githubusercontent.com/FlamesRunner/FlamesCP/master/installers/install.sh | bash
-
+    wget https://raw.githubusercontent.com/FlamesRunner/FlamesCP/master/installers/install.sh
+    chmod 755 install.sh
+    ./install.sh
 
 ## Support
 
