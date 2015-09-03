@@ -22,7 +22,7 @@ $textColor = ""; //use CSS color
 if(!$textColor) $textColor = "white";
 if($interval < 100)  $interval = 100; 
 if($_GET['getLog']){
-	echo file_get_contents($logFile);
+	echo system("tail ".$logFile." -n 50")
 }else{
 ?>
 <html>
