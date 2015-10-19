@@ -42,12 +42,13 @@ service httpd start
 chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
-mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('stapHunu3A'); flush privileges;"
-mysql -uroot -pstapHunu3A -e "create database users; use users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
+read -e -p "Please enter a MySQL password: " MYSQLPASS
+mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$MYSQLPASS'); flush privileges;"
+mysql -uroot -p$MYSQLPASS -e "create database users; use users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
 sleep 2
 clear
 read -e -p "Please enter a administrative password: " adminpwd
-mysql -uroot -pstapHunu3A -e "use users; insert into login (id, username, password, status) VALUES(1, 'admin', '$adminpwd', 'admin');"
+mysql -uroot -p$MYSQLPASS -e "use users; insert into login (id, username, password, status) VALUES(1, 'admin', '$adminpwd', 'admin');"
 sleep 2
 echo "Copying init files..."
 cp /var/www/html/init /etc/init.d/flamescpd
@@ -84,5 +85,7 @@ echo "Username: ftpuser"
 echo "Password: $ftppassword"
 youripaddr=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
 echo "IP: $youripaddr"
+yourpubip=`curl -q icanhazip.com`
+echo "Public IP: $yourpubip"
 fi
 fi
