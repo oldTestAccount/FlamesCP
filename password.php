@@ -32,7 +32,8 @@ include('session.php');
 <?php
 if(isset($_GET['password'])){
 $password = $_GET['password'];
-$conn = mysql_connect('127.0.0.1', 'root', 'stapHunu3A');
+include_once 'config.php';
+$conn = mysql_connect('127.0.0.1', 'root', $mysqlpass);
 mysql_select_db('users', $conn);
 $username = $_SESSION['logged_in_as'];
 $sql = 'update login SET password="'.$password.'" where username="'.$username.'";';

@@ -60,7 +60,8 @@ die('<div class="alert alert-danger">Removing users is not permitted as a modera
 <h1>Remove user</h1>
 <hr>
 <?php
-$con = mysql_connect('127.0.0.1', 'root', 'stapHunu3A');
+	include_once 'config.php';
+$con = mysql_connect('127.0.0.1', 'root', $mysqlpass);
 mysql_select_db('users', $con);
 $userlist = mysql_query('select username, status from login;');
 ?>

@@ -43,6 +43,11 @@ chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
 read -e -p "Please enter a MySQL password: " MYSQLPASS
+cat <<EOF >> config.php
+	<?php
+	\$mysqlpass = "$MYSQLPASS";
+	?>
+EOF
 mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$MYSQLPASS'); flush privileges;"
 mysql -uroot -p$MYSQLPASS -e "create database users; use users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
 sleep 2

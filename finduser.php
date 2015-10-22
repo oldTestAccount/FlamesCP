@@ -1,5 +1,6 @@
 <?php
-$conn = mysql_connect('localhost', 'root', 'stapHunu3A');
+	include_once 'config.php';
+$conn = mysql_connect('localhost', 'root', $mysqlpass);
 mysql_select_db('users', $conn);
 $query = "SELECT *
         FROM login
