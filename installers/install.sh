@@ -4,48 +4,58 @@ if [ -z "$os" ]; then
 echo "You must be running CentOS 6.x!"
 else
 if [ ! -z "$os" ]; then
+echo "Configuring IPTables Rule for FlamesCP..."
+iptables -A INPUT -p tcp --dport 5555 -j ACCEPT
+iptables -A INPUT -p udp --dport 5555 -j ACCEPT
+service iptables save &> /dev/null
+sleep 2
+clear
 echo "Installing dependencies..."
 sleep 1
 yum install epel-release -y
 yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
-echo "Performing system backup [httpd]..."
-zip -r /html_backup.zip /var/www/html
-rm -rf /var/www/html/* &> /dev/null
+mkdir /usr/local/flamescp
+echo '
+<VirtualHost *:5555>
+ServerAdmin user@localhost
+DocumentRoot /usr/local/flamescp
+</VirtualHost>
+' > /etc/httpd/conf.d/flamescp.conf
+service httpd reload &> /dev/null
 echo "Grabbing latest release..."
-cd /var/www/html
+cd /usr/local/flamescp
 mkdir /DAEMON
 wget https://github.com/FlamesRunner/FlamesCP/archive/master.zip
 mv master master.zip
 unzip master.zip
-mv /var/www/html/FlamesCP-master/* /var/www/html
-cd /
-cp /var/www/html/cpuprot /DAEMON
+mv /usr/local/flamescp/FlamesCP-master/* /usr/local/flamescp
+cp /usr/local/flamescp /DAEMON/
 chmod 755 /cpuprot
-mv /var/www/html/DAEMON/* /DAEMON/
-mv /var/www/html/flamescpd /
+mv /usr/local/flamescp/DAEMON/* /DAEMON/
+mv /usr/local/flamescp/flamescpd /
 echo "bash /flamescpd" >> /etc/rc.d/rc.local
-mv /var/www/html/security /var/www/security
-cd /var/www/html/installers/cpulimit
+rm -rf /usr/local/flamescp/security
+cd /usr/local/flamescp/installers/cpulimit
 make
-cp /var/www/html/installers/cpulimit/src/cpulimit /usr/bin
+cp /usr/local/flamescp/installers/cpulimit/src/cpulimit /usr/bin
 mkdir /SERVER
 cd /SERVER
 wget https://s3.amazonaws.com/Minecraft.Download/versions/1.8.3/minecraft_server.1.8.3.jar
 mv minecraft_server.1.8.3.jar server.jar
 clear
-read -e -p "Please enter the amount of RAM that your system has. (in MB): " ram
+read -e -p "Please enter the amount of RAM that you want to allocate to the Minecraft server (in MB): " ram
 mem="-Xmx${ram}M"
 echo "java $mem -jar server.jar nogui" >> start.sh
-echo "cd /SERVER" >> /var/www/startserver
-echo "bash start.sh" >> /var/www/startserver
+echo "cd /SERVER" >> /usr/local/flamescp/startserver
+echo "bash start.sh" >> /usr/local/flamescp/startserver
 sleep 1
 service httpd start
-/bin/cp -rf /var/www/html/newsudofile /etc/sudoers
-/bin/cp -rf /var/www/html/sendcmd /bin
+/bin/cp -rf /usr/local/flamescp/newsudofile /etc/sudoers
+/bin/cp -rf /usr/local/flamescp/sendcmd /bin
 chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
-cd /var/www/html
+cd /usr/local/flamescp/
 read -e -p "Please enter a MySQL password: " MYSQLPASS
 cat <<EOF >> config.php
 	<?php
@@ -60,10 +70,10 @@ read -e -p "Please enter a administrative password: " adminpwd
 mysql -uroot -p$MYSQLPASS -e "use users; insert into login (id, username, password, status) VALUES(1, 'admin', '$adminpwd', 'admin');"
 sleep 2
 echo "Copying init files..."
-cp /var/www/html/init /etc/init.d/flamescpd
+cp /usr/local/flamescp/init /etc/init.d/flamescpd
 chmod 755 /etc/init.d/flamescpd
 rm -rf /etc/vsftpd/vsftpd.conf
-cp /var/www/html/vsftpd.conf /etc/vsftpd
+cp /usr/local/flamescp/vsftpd.conf /etc/vsftpd
 useradd -d /SERVER ftpuser
 mkdir -p /SERVER/logs
 echo "[Stopped]" > /SERVER/logs/latest.log
@@ -74,6 +84,7 @@ chown ftpuser:apache /SERVER/logs
 chown ftpuser:apache /SERVER/*
 chmod 770 /SERVER/*
 clear
+chmod -R 755 /usr/local/flamescp
 read -e -p "Please enter a FTP password: " ftppassword
 echo -e "$ftppassword\n$ftppassword" | passwd ftpuser
 service vsftpd restart
