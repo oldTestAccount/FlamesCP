@@ -81,7 +81,8 @@ if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['rank'])
 $username = $_GET['username'];
 $password = $_GET['password'];
 $rank = $_GET['rank'];
-$conn = mysql_connect('127.0.0.1', 'root', 'stapHunu3A');
+include_once 'config.php';
+$conn = mysql_connect('127.0.0.1', 'root', $mysqlpass);
 mysql_select_db('users', $conn);
 $q = 'select status from login where username="'.$username.'"';
 $qr = mysql_query($q);
