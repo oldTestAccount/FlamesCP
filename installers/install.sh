@@ -12,8 +12,8 @@ sleep 2
 clear
 echo "Installing dependencies..."
 sleep 1
-yum install epel-release -y
-yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
+yum install epel-release -y &> /dev/null
+yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server &>/dev/null
 mkdir /usr/local/flamescp
 echo '
 Listen 5555
@@ -56,8 +56,9 @@ service httpd start
 /bin/cp -rf /usr/local/flamescp/sendcmd /bin
 chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
-service mysqld start
+service mysqld start &> /dev/null
 cd /usr/local/flamescp/
+clear
 read -e -p "Please enter a MySQL password: " MYSQLPASS
 cat <<EOF >> config.php
 	<?php
@@ -68,7 +69,7 @@ mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$MYSQLPASS'); f
 mysql -uroot -p$MYSQLPASS -e "create database users; use users; CREATE TABLE login(id int(10) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, status varchar(50), PRIMARY KEY (id));"
 sleep 2
 clear
-read -e -p "Please enter a administrative password: " adminpwd
+read -e -p "Please enter a password for the administrative user: " adminpwd
 mysql -uroot -p$MYSQLPASS -e "use users; insert into login (id, username, password, status) VALUES(1, 'admin', '$adminpwd', 'admin');"
 sleep 2
 echo "Copying init files..."
@@ -90,6 +91,7 @@ chmod -R 755 /usr/local/flamescp
 read -e -p "Please enter a FTP password: " ftppassword
 echo -e "$ftppassword\n$ftppassword" | passwd ftpuser
 service vsftpd restart
+service flamescpd start
 clear
 echo " "
 echo "Installation complete! Please run: service flamescpd start to start the daemon."
