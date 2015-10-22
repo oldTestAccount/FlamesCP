@@ -39,6 +39,7 @@ echo "bash /flamescpd" >> /etc/rc.d/rc.local
 rm -rf /usr/local/flamescp/security
 cd /usr/local/flamescp/installers/cpulimit
 make
+make install
 cp /usr/local/flamescp/installers/cpulimit/src/cpulimit /usr/bin
 mkdir /SERVER
 cd /SERVER
