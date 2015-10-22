@@ -12,7 +12,8 @@ if (empty($_GET['username'])) {
 $username = $_GET['username'];
 $password = $_GET['password'];
  
-$conn = mysql_connect('localhost', 'root', 'stapHunu3A');
+include_once 'config.php';
+$conn = mysql_connect('localhost', 'root', $mysqlpass);
 mysql_select_db('users', $conn);
  
 $username = mysql_real_escape_string($username);
