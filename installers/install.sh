@@ -8,6 +8,9 @@ echo "Installing dependencies..."
 sleep 1
 yum install epel-release -y
 yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
+echo "Performing system backup [httpd]..."
+zip -r /html_backup.zip /var/www/html
+rm -rf /var/www/html/* &> /dev/null
 echo "Grabbing latest release..."
 cd /var/www/html
 mkdir /DAEMON
@@ -84,6 +87,7 @@ echo "Username: admin"
 echo "Password: $adminpwd"
 echo " "
 echo "-----------------------------------------------------------------------------"
+echo "If you had any previous files in the Apache directory, they have been backed up to /html_backup.zip"
 echo " "
 echo "You may modify server details through FTP with the details:"
 echo "Username: ftpuser"
