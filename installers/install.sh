@@ -45,6 +45,7 @@ service httpd start
 chmod 755 /bin/sendcmd
 echo "Configuring MySQL..."
 service mysqld start
+cd /var/www/html
 read -e -p "Please enter a MySQL password: " MYSQLPASS
 cat <<EOF >> config.php
 	<?php
