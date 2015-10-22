@@ -16,7 +16,9 @@ yum install epel-release -y
 yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
 mkdir /usr/local/flamescp
 echo '
+Listen 5555
 <VirtualHost *:5555>
+ServerName localhost:5555
 ServerAdmin user@localhost
 DocumentRoot /usr/local/flamescp
 </VirtualHost>
