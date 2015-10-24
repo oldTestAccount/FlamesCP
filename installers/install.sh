@@ -111,5 +111,7 @@ echo "Password: $ftppassword"
 youripaddr=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
 echo "IP: $youripaddr"
 echo "Control Panel URL: http://$youripaddr:5555"
+yourpubip=`curl -q icanhazip.com`
+echo "Public IP: $yourpubip"
 fi
 fi
