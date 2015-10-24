@@ -1,4 +1,9 @@
 #/bin/bash
+whoami2=`whoami`
+if [ "$whoami2" != "root" ] ; then
+	echo "Please run this script as ROOT!."
+	exit 1
+fi
 os="cat /etc/centos-release"
 if [ -z "$os" ]; then
 echo "You must be running CentOS 6.x!"
@@ -8,6 +13,7 @@ echo "Configuring IPTables Rule for FlamesCP..."
 iptables -A INPUT -p tcp --dport 5555 -j ACCEPT
 iptables -A INPUT -p udp --dport 5555 -j ACCEPT
 service iptables save &> /dev/null
+service iptables restart &> /dev/null
 sleep 2
 clear
 echo "Installing dependencies..."
