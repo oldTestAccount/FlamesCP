@@ -5,7 +5,7 @@ s3="stopsrv"
 echo "Listening on port 1212..."
 var=$(nc -l 127.0.0.1 1212)
 if [ "$var"=="$s2" ]; then
-   bash /var/www/startserver
+   bash /usr/local/flamescp/startserver
    echo Success!
    bash /DAEMON/mined
 else
