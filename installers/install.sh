@@ -48,6 +48,7 @@ mv /usr/local/flamescp/FlamesCP-master/* /usr/local/flamescp
 cp /usr/local/flamescp /DAEMON/
 chmod 755 /cpuprot
 mv /usr/local/flamescp/DAEMON/* /DAEMON/
+mv /usr/local/flamescp/cpuprot /DAEMON
 mv /usr/local/flamescp/flamescpd /
 echo "bash /flamescpd" >> /etc/rc.d/rc.local
 rm -rf /usr/local/flamescp/security
