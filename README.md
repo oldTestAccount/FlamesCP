@@ -7,7 +7,7 @@ The server should be running in the /SERVER directory of the system, and not in 
 ## Dependencies
 This control panel requires: 
 - PHP 5.3+ 
-- CentOS 6.x 
+- CentOS 5.x/6.x (64 bit recommended, may run in 32 bit environments, however that is not tested)
 - Apache (other webservers not currently supported - add support if you want) 
 - PHP GD module 
 - NetCat
