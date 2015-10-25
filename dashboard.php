@@ -19,11 +19,11 @@ include('session.php');
 <head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
-       setInterval(refreshIframe2, 5000);
-       function refreshIframe2() {
-           var frame = document.getElementById("frame2");
-           frame.src = frame.src;
-       }
+//      setInterval(refreshIframe2, 5000);
+//       function refreshIframe2() {
+//       var frame = document.getElementById("frame2");
+//           frame.src = frame.src;
+//       }
 
 //depreciated
 //  setInterval(function() {
@@ -31,9 +31,9 @@ include('session.php');
 //
 //   }, 800);
 
-//$("#div1").load("controls.php");
-
    $( document ).ready(function() {
+
+   $("#div1").load("controls.php");
 
           function loading() {
               $('.result').show().html('<div class="alert alert-success">Command executed successfully!</div>');
