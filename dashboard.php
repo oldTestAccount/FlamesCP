@@ -25,18 +25,18 @@ include('session.php');
            frame.src = frame.src;
        }
 
+//depreciated
+//  setInterval(function() {
+//$("#div1").load("controls.php");
+//
+//   }, 800);
 
-  setInterval(function() {
-$("#div1").load("controls.php");
-
-   }, 800);
-
-$("#div1").load("controls.php");
+//$("#div1").load("controls.php");
 
    $( document ).ready(function() {
 
-            function loading() {
-                $('.result').show().html('<div class="alert alert-success">Command executed successfully!</div>');
+          function loading() {
+              $('.result').show().html('<div class="alert alert-success">Command executed successfully!</div>');
             }
 
             function formResult(data) {
