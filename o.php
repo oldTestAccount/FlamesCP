@@ -16,7 +16,7 @@ include('session.php');
  * just fill in the varibles bellow, open in a web browser and tail away 
  */
 $logFile = "/SERVER/logs/latest.log"; // local path to log file
-$interval = 250; //how often it checks the log file for changes, min 100
+$interval = 3000; //how often it checks the log file for changes, min 100
 $textColor = ""; //use CSS color
 // Don't have to change anything bellow
 if(!$textColor) $textColor = "white";
