@@ -13,6 +13,8 @@ if [ ! -z "$os" ]; then
 echo "Configuring IPTables Rule for FlamesCP..."
 iptables -A INPUT -p tcp --dport 5555 -j ACCEPT
 iptables -A INPUT -p udp --dport 5555 -j ACCEPT
+iptables -A INPUT -p tcp --dport 25565 -j ACCEPT
+iptables -A INPUT -p udp --dport 25565 -j ACCEPT
 service iptables save &> /dev/null
 service iptables restart &> /dev/null
 sleep 2
