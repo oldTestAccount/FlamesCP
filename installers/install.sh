@@ -1,12 +1,13 @@
 #/bin/bash
 whoami2=`whoami`
 if [ "$whoami2" != "root" ] ; then
-	echo "Please run this script as ROOT!."
+	echo "Please run the installer as the root user."
 	exit 1
 fi
 os="cat /etc/centos-release"
 if [ -z "$os" ]; then
 echo "You must be running CentOS 6.x!"
+exit 0
 else
 if [ ! -z "$os" ]; then
 echo "Configuring IPTables Rule for FlamesCP..."
@@ -16,10 +17,17 @@ service iptables save &> /dev/null
 service iptables restart &> /dev/null
 sleep 2
 clear
+if [ "$1" == "--verbose" ]; then
+echo "Installing dependencies..."
+sleep 1
+yum install epel-release -y
+yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server
+else
 echo "Installing dependencies..."
 sleep 1
 yum install epel-release -y &> /dev/null
 yum install -y httpd php php-gd nc git zip unzip screen gcc make gc sudo java7 vsftpd php-mysql mysql mysql-server &>/dev/null
+fi
 mkdir /usr/local/flamescp
 echo '
 Listen 5555
