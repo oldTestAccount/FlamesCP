@@ -6,7 +6,7 @@ include('session.php');
 ?>
 <div class="btn-group">
 <a href="startserver.php" target="_blank" class="btn btn-success">Start Server</a>
-<a href="stop.php" target="_blank" class="btn btn-warning">Server already stopped!</a>
+<a href="stop.php" target="_blank" class="btn btn-warning">Stop Server</a>
 <a href="password.php" class="btn btn-primary">Change password</a>
 <a href="adduser.php" class="btn btn-info">Add user</a>
 <a href="rmuser.php" class="btn btn-default">Remove user</a>
