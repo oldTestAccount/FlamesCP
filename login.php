@@ -6,7 +6,7 @@ session_start();
 ob_start();
 
 if (empty($_GET['username'])) {
-    header('Location: index.php?error=Uername and/or password was not specified.');
+    header('Location: index.php?error=1');
 }
 
 $username = $_GET['username'];
