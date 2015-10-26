@@ -82,7 +82,20 @@ border-radius: 0px;
 <hr>
 <form action="login.php" method="get">
 <?php if(isset($_GET['error'])){ ?>
-<div class="alert alert-danger"><b>Error</b>: <?php echo strip_tags($_GET['error']); ?></div><br>
+<div class="alert alert-danger"><b>Error</b>: 
+<?php 
+switch($_GET['error']) {
+  case 1:
+    echo "Username and/or password was not specified.";
+    break;
+  case 2:
+    echo "You must be logged in to view this page.";
+    break;
+  default:
+    header("location: login.php");
+    break;
+}
+?></div><br>
 <?php } ?>
 <?php if(isset($_GET['loggedout'])){ ?>
 <div class="alert alert-info">You have been logged out.</div>
