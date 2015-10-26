@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -6,7 +7,6 @@
 <br> </br>
 
 <?php
-session_start();
 if(isset($_SESSION['logged_in'])){
 header("location: dashboard.php");
 }
@@ -82,7 +82,7 @@ border-radius: 0px;
 <hr>
 <form action="login.php" method="get">
 <?php if(isset($_GET['error'])){ ?>
-<div class="alert alert-danger"><b>Error</b>: <?php echo $_GET['error']; ?></div><br>
+<div class="alert alert-danger"><b>Error</b>: <?php echo strip_tags($_GET['error']); ?></div><br>
 <?php } ?>
 <?php if(isset($_GET['loggedout'])){ ?>
 <div class="alert alert-info">You have been logged out.</div>
