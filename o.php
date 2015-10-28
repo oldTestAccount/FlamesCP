@@ -4,7 +4,7 @@
 <?php
 include('session.php');
 ?>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 
 <?php
@@ -28,10 +28,10 @@ if($_GET['getLog']){
 <html>
 	<title>Log</title>
 	<style>
-		@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+		@import url(https://fonts.googleapis.com/css?family=Ubuntu);
 		body{
 			background-color: black;
-			color: <?php echo $textColor; ?>;
+			color: <?php print($textColor); ?>;
 			font-family: 'Ubuntu', sans-serif;
 			font-size: 16px;
 			line-height: 20px;	
@@ -51,9 +51,9 @@ if($_GET['getLog']){
 			overflow:visible;
 		}
 	</style>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
 	<script>
-		setInterval(readLogFile, <?php echo $interval; ?>);
+		setInterval(readLogFile, <?php print($interval); ?>);
 		window.onload = readLogFile; 
 		var pathname = window.location.pathname;
 		var scrollLock = true;
