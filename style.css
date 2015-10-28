@@ -32,7 +32,7 @@ margin-top:8px;
 border:1px solid #darkgrey;
 padding-left:5px;
 font-size:16px;
-font-family:'Open Sans', sans serif;
+font-family:'Open Sans', sans-serif;
 }
 input[type=submit] {
 width:100%;
@@ -43,23 +43,23 @@ padding:10px;
 font-size:20px;
 cursor:pointer;
 border-radius:5px;
-margin-bottom:15px
+margin-bottom:15px;
 }
 #profile {
 padding:50px;
 border:1px dashed grey;
 font-size:20px;
-background-color:#DCE6F7
+background-color:#DCE6F7;
 }
 #logout {
 float:right;
 padding:5px;
-border:dashed 1px gray
+border:dashed 1px gray;
 }
 a {
 text-decoration:none;
-color:#6495ed
+color:#6495ed;
 }
 i {
-color:#6495ed
+color:#6495ed;
 }
